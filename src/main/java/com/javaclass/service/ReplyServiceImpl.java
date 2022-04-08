@@ -17,8 +17,8 @@ public class ReplyServiceImpl implements ReplyService {
 	
 	//댓글 조회
 	@Override
-	public List<ReplyVO> readReply(int reply_rno) throws Exception {
-		return dao.readReply(reply_rno);
+	public List<ReplyVO> readReply(int bno) throws Exception {
+		return dao.readReply(bno);
 	}
 	
 	//댓글 작성
@@ -44,8 +44,8 @@ public class ReplyServiceImpl implements ReplyService {
 
 	//선택된 댓글 조회
 	@Override
-	public ReplyVO selectReply(int reply_rno) throws Exception {
-		return dao.selectReply(reply_rno);
+	public ReplyVO selectReply(int rno) throws Exception {
+		return dao.selectReply(rno);
 	}
 
 }

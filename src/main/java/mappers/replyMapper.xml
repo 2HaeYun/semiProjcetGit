@@ -7,47 +7,47 @@
 	<!-- 댓글 조회 -->
 	<select id="readReply" resultType="ReplyVO">
     	SELECT
-    		  reply_rno, reply_content, reply_writer, reply_regdate
-    	 FROM reply
-    	WHERE qnaSeq = #{qnaSeq} 
+    		  RNO, CONTENT, WRITER, REGDATE
+    	 FROM MP_REPLY
+    	WHERE BNO = #{bno} 
 	</select>
 	
 	<!-- 댓글 작성 -->	
 	<insert id="writeReply" parameterType="ReplyVO">
-		INSERT INTO reply(
-			qnaSeq
-			, reply_rno
-			, reply_content
-			, reply_writer
+		INSERT INTO MP_REPLY(
+			BNO
+			, RNO
+			, CONTENT
+			, WRITER
 		)
-		VALUES(    #{qnaSeq}
-			, reply_rno.NEXTVAL
-			, #{reply_content}
-			, #{reply_writer}	)
+		VALUES(    #{bno}
+			, MP_REPLY_SEQ.NEXTVAL
+			, #{content}
+			, #{writer}	)
 	</insert>
 	
 	<!-- 댓글 수정 -->
 	<update id="updateReply" parameterType="ReplyVO">
-		UPDATE reply SET reply_content = #{reply_content}
-		WHERE reply_rno = #{reply_rno}
+		UPDATE MP_REPLY SET CONTENT = #{content}
+		WHERE RNO = #{rno}
 	</update>
 
 	<!-- 댓글 삭제 -->
 	<delete id="deleteReply" parameterType="ReplyVO">
-		DELETE FROM reply
-		WHERE reply_rno = #{reply_rno}
+		DELETE FROM MP_REPLY
+		WHERE RNO = #{rno}
 	</delete>
 	
 	<!-- 선택된 댓글 조회 -->
 	<select id="selectReply" resultType="ReplyVO">
 		SELECT
-				qnaSeq
-			  , reply_rno
-			  , reply_content
-			  , reply_writer
-			  , reply_regdate
-		  FROM reply
-		 WHERE reply_rno = #{reply_rno}
+				BNO
+			  , RNO
+			  , CONTENT
+			  , WRITER
+			  , REGDATE
+		  FROM MP_REPLY
+		 WHERE RNO = #{rno}
 	</select>
 	
 
