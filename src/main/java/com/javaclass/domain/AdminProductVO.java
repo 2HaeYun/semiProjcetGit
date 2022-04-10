@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class AdminProductVO {
 	
-	private String account_Id;
+	private String account_Id; 
 	private String product_Seq;
 	private String product_Name;
 	private String product_Password;

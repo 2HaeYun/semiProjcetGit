@@ -8,7 +8,7 @@
 #main_blank{
 width : 55%;
 display: block; 
-margin: 0px auto;
+margin: 0px auto; 
 }
 
 </style>

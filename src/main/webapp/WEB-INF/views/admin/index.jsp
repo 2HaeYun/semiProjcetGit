@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <!-- 여기에 헤드 -->
 <%@ include file="../include/homeInclude/head.jsp" %> 
 
@@ -146,7 +146,8 @@
 								<div id="tab1" class="tab-pane active">
 									<div class="products-slick" data-nav="#slick-nav-1">
 									<c:if test="${admin_ProductList ne null }">
-										<c:forEach items="${admin_ProductList }" var="admin_Product"> 	<!-- 반복을 위해서 필요함 -->
+										<c:forEach items="${admin_ProductList }" var="admin_Product"> 	
+										<!-- 반복을 위해서 필요함 -->
 											<!-- product VO파일에서 이미지 저장경로중 spring 확인(진혁님은 (springEC/05_세미프로젝트)에요!) -->
 											 <div class="product">
 												<div class="product-img">
@@ -180,7 +181,6 @@
 										</c:forEach>	 
 									</c:if>
 										<!-- /product -->
-
 									</div>
 									<div id="slick-nav-1" class="products-slick-nav"></div>
 								</div>

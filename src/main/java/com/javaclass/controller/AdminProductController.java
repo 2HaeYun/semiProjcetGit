@@ -49,8 +49,6 @@ public class AdminProductController {
 	}
 
 	// 관리자 상품 수정
-	
-
 	@RequestMapping("/adminProductUpdate.do")
 	public String updateProduct(@ModelAttribute AdminProductVO vo, Model model, String product_Seq) {
 		// 비밀번호 체크
