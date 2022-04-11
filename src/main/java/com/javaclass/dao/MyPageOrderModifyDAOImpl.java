@@ -21,9 +21,9 @@ public class MyPageOrderModifyDAOImpl implements MyPageOrderModifyDAO {
 	//}
 	
 	//DB 값 입력값 불려오기 주문내역페이지에 ***********************************************************
-	public List<MyPageOrderModifyVO> getOrderList(){
+	public List<MyPageOrderModifyVO> getOrderList(MyPageOrderModifyVO vo){
 		System.out.println("요청되었습니다.");
-		return sqlSession.selectList("orderMapper.getOrderList");
+		return sqlSession.selectList("orderMapper.getOrderList", vo);
 	} 
 
 	//주문상세보기에 db 값 불려오기 
@@ -60,8 +60,9 @@ public class MyPageOrderModifyDAOImpl implements MyPageOrderModifyDAO {
 	}
 	
 	//select 취소/교환/반품 상태 표시 리스트 나타내기
-	public List<MyPageOrderModifyVO> getCancleList(){
-	return sqlSession.selectList("orderMapper.getOrderList");
+	public List<MyPageOrderModifyVO> getCancleList(MyPageOrderModifyVO vo){
+	return sqlSession.selectList("orderMapper.getCancleList",vo);
 	} 
 
+	
 }

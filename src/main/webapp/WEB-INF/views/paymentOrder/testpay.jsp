@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>결제 시스템 | 머신킹덤</title>
 
 
 </head>
 <body>
 
 	
-	<input type="hidden" id="order_number" name="price" value="${pay.order_number }">
+	<input type="hidden" id="orderdata_seq" name="price" value="${pay.orderdata_seq }">
 	<input type="hidden" id="buyer_name" name="price" value="${pay.sender_name }">
 	<input type="hidden" id="buyer_email" name="price" value="${pay.sender_email }">
 	<input type="hidden" id="buyer_tel" name="price" value="${pay.sender_tel }">
@@ -50,11 +50,10 @@ window.onload = function(){
 			if ( rsp.success ) {
 		    	alert("결제가 완료되었습니다. ");
 		        
-		    	$(location).attr('href', 'payment_sucess.do?order_number='+$("#order_number").val());
+		    	$(location).attr('href', 'payment_sucess.do?orderdata_seq='+$("#orderdata_seq").val());
 		    	
-		        
-		        
 		    } else {
+		    	
 		    	<!-- 결제 실패 -->
 		    	 alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
 		    	 $(location).attr('href', 'payment_fail.do');

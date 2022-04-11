@@ -65,14 +65,14 @@
 		<form class="form-horizontal">
 			<div class="card-body">
 				<div class="form-group row">
-					<div class="h3">회원탈퇴됐음</div>
+					<div class="h3">회원탈퇴되었습니다.</div>
 				</div>
 			</div>
 			<!-- /.card-body -->
 			<div class="card-bottom">
 				<div>
-				<a href='/'>홈으로</a>
-			</div>
+				<a href='/'><button type="button" class="btn btn-info">홈으로</button></a>
+				</div>
 			</div>
 			<!-- /.card-footer -->
 		</form>

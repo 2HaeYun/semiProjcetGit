@@ -9,7 +9,7 @@ public interface MyPageOrderModifyDAO {
 	//public int insertMember(OrderModifyVO vo);
 	
     //DB 목록 값 불려오기
-	public List<MyPageOrderModifyVO> getOrderList();
+	public List<MyPageOrderModifyVO> getOrderList(MyPageOrderModifyVO vo);
 	
 	//주문내역 db 주문상세보기 페이지 불려오기
 	 public MyPageOrderModifyVO selectLoad(MyPageOrderModifyVO vo);
@@ -30,5 +30,8 @@ public interface MyPageOrderModifyDAO {
     public void updateCancle(MyPageOrderModifyVO vo);
     
     //select 취소/교환/반품 상태 표시 리스트 나타내기
-    public List<MyPageOrderModifyVO> getCancleList();
+    public List<MyPageOrderModifyVO> getCancleList(MyPageOrderModifyVO vo);
+    
+    
+    
 }

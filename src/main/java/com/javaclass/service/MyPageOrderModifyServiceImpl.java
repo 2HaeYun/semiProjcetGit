@@ -26,8 +26,8 @@ public class MyPageOrderModifyServiceImpl implements MyPageOrderModifyService{
 	//}
 
 	//주문 내역 조회 ***************************************************************************************
-	public List<MyPageOrderModifyVO> getOrderList() {
-		return orderModifyDAOImpl.getOrderList();
+	public List<MyPageOrderModifyVO> getOrderList(MyPageOrderModifyVO vo) {
+		return orderModifyDAOImpl.getOrderList(vo);
 	}
 	
 	//주문내역 db 값 주문상세 보기 불려오기 
@@ -63,8 +63,11 @@ public class MyPageOrderModifyServiceImpl implements MyPageOrderModifyService{
 	}
 	
 	//select 취소/교환/반품 상태 표시 리스트 나타내기
-	public List<MyPageOrderModifyVO> getCancleList() {
-		return orderModifyDAOImpl.getCancleList();
+	public List<MyPageOrderModifyVO> getCancleList(MyPageOrderModifyVO vo) {
+		return orderModifyDAOImpl.getCancleList(vo);
 	}
+	
+	
+	
 	
 }	

@@ -11,7 +11,7 @@
 
 <h1>페이지 연결링크</h1>
 
-
+<a href='/admin/adminMail.do'>메일</a><br/><br/>
 <h2>홈페이지</h2>
 <a href='/homePage/Qna.do'>고객센터</a><br/><br/>
 <a href='/homePage/product.do'>상품상세페이지</a><br/><br/> 
@@ -41,7 +41,6 @@
 <a href='/myPage/canclepage.do'>취소/교환/반품 페이지</a><br/><br/>
 <a href='/myPage/ordermodify.do'>주문수정 페이지</a><br/><br/>
 <a href='/myPage/cancleload.do'>취소/교환/반품 상태표시 페이지</a><br/><br/><br/>
-
 <hr/>
 <hr/><br/>
 

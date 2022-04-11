@@ -25,17 +25,16 @@ public class MyPageOrderModifyController {
     //주문수정 페이지 form action 값 지정 *********************************************************
 	
 	  @RequestMapping("/myPage/modi.do") 
-	  public String modi(MyPageOrderModifyVO vo) {
+	  public String modi(MyPageOrderModifyVO vo, String account_Id) {
 	  ordermodifyServiceImpl.updateMember(vo); 
-	  return "redirect:orderpage.do"; 
+	  return "redirect:orderload.do?account_Id=" + account_Id;
 	  }
-	
 	  
 	//db값 주문내역페이지에 가져오기 ***************************************************************
 	
 	  @RequestMapping("/myPage/orderpage.do")
 	public void getOrderList(MyPageOrderModifyVO vo,Model m) {
-		List<MyPageOrderModifyVO> list= ordermodifyServiceImpl.getOrderList();
+		List<MyPageOrderModifyVO> list= ordermodifyServiceImpl.getOrderList(vo);
 		m.addAttribute("orderList",list);
 		
 	}
@@ -45,9 +44,9 @@ public class MyPageOrderModifyController {
 	
 	  @RequestMapping("/myPage/orderload.do")
 	  public void selectLoad(MyPageOrderModifyVO vo, Model m) {
-			m.addAttribute("board",ordermodifyServiceImpl.selectLoad(vo));
+	  m.addAttribute("board",ordermodifyServiceImpl.selectLoad(vo));
 			 
-		}
+	 }
 		
 	
 	
@@ -60,10 +59,11 @@ public class MyPageOrderModifyController {
 		return "/orderpage.do"; 
 	}
 	 
-	
+	  
+	// 보류 *****************************************************************************
 	@RequestMapping("saveMember.do")
 	public void saveMember(MyPageOrderModifyVO vo) {
-		ordermodifyServiceImpl.getOrderList();
+		ordermodifyServiceImpl.getOrderList(vo);
 		
 	}
 	
@@ -81,9 +81,9 @@ public class MyPageOrderModifyController {
 	
 	@RequestMapping("/myPage/canclepage.do")
 	public void selectDelete(HttpServletRequest  req, MyPageOrderModifyVO vo, Model m) {
-		String account_id = req.getParameter("account_id");
-		vo.setAccount_id(account_id);
-		m.addAttribute("board",ordermodifyServiceImpl.selectDelete(account_id));
+		String account_Id = req.getParameter("account_Id");
+		vo.setAccount_Id(account_Id);
+		m.addAttribute("board",ordermodifyServiceImpl.selectDelete(account_Id));
 		
 	}
 	
@@ -92,9 +92,9 @@ public class MyPageOrderModifyController {
 	//cancle 페이지에서 option 값 가져오기 ***********************************************************
 	
 	@RequestMapping("/myPage/canclepage2.do")
-	public String trainerMyPage(MyPageOrderModifyVO vo) {
+	public String trainerMyPage(MyPageOrderModifyVO vo , String account_Id) {
 		 ordermodifyServiceImpl.updateCancle(vo);
-        return "redirect:/myPage/cancleload.do";
+        return "redirect:/myPage/cancleload.do?account_Id=" + account_Id;
 	}
 	
 
@@ -102,14 +102,15 @@ public class MyPageOrderModifyController {
 	
 	@RequestMapping("/myPage/cancleload.do") 
 	public void getCancleList(MyPageOrderModifyVO vo,Model m) {
-		List<MyPageOrderModifyVO> list= ordermodifyServiceImpl.getCancleList();
+		List<MyPageOrderModifyVO> list= ordermodifyServiceImpl.getCancleList(vo);
 		m.addAttribute("cancleList",list);
 	}
 	
 	
 	 
-	  
 	 
+
+		
 	 
 }
 	

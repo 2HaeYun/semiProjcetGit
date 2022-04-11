@@ -2,7 +2,10 @@ package com.javaclass.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.javaclass.domain.AccountVO;
+import com.javaclass.domain.MyPageOrderModifyVO;
 
 public interface AccountDAO {
 
@@ -27,5 +30,14 @@ public interface AccountDAO {
 	public boolean checkPassword(String account_Id, String account_Password);
 
 	public void deleteAccount(AccountVO vo);
+	
+	//아이디 찾기
+	public AccountVO idConfirm(AccountVO vo);
+	
+	//비밀번호 찾기
+	public AccountVO pwFind(AccountVO vo);
+	
+	//주문목록 불러오기
+	public List<MyPageOrderModifyVO> adminOrderList(MyPageOrderModifyVO mvo);
 
 }

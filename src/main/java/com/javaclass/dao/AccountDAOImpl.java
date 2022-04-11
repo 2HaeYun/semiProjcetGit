@@ -1,14 +1,20 @@
 package com.javaclass.dao;
 
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.locks.AbstractQueuedLongSynchronizer;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.javaclass.domain.AccountVO;
+import com.javaclass.domain.MyPageOrderModifyVO;
 
 @Repository("accountDAOImpl")
 public class AccountDAOImpl implements AccountDAO {
@@ -66,5 +72,22 @@ public class AccountDAOImpl implements AccountDAO {
 	public void deleteAccount(AccountVO vo) {
 		sqlSession.selectOne("accountMapper.deleteAccount", vo);
 	}
+	
+
+	 //아이디 찾기 
+	public AccountVO idConfirm(AccountVO vo) { 
+		System.out.println("다오;ㅛ,");
+		return sqlSession.selectOne("accountMapper.idConfirm", vo); 
+		}
+	 
+	
+	//비밀번호 찾기
+	public AccountVO pwFind(AccountVO vo) {
+		return sqlSession.selectOne("accountMapper.pwFind", vo);
+	}
+	
+	public List<MyPageOrderModifyVO> adminOrderList(MyPageOrderModifyVO mvo){
+		return sqlSession.selectList("orderMapper.getList", mvo);
+	} 
 
 }

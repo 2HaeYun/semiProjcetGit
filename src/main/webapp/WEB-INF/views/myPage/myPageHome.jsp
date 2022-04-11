@@ -74,24 +74,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							<div class="row">
 								<div class="col-sm-4 border-right">
 									<div class="description-block">
-										<h5 class="description-header">3,200</h5>
-										<span class="description-text">총 주문금액</span>
+										<h5 class="description-header">회원이름</h5>
+										<span class="description-text">${account.account_Name }</span>
 									</div>
 									<!-- /.description-block -->
 								</div>
 								<!-- /.col -->
 								<div class="col-sm-4 border-right">
 									<div class="description-block">
-										<h5 class="description-header">13,000</h5>
-										<span class="description-text">멤버등급</span>
+										<h5 class="description-header">이메일</h5>
+										<span class="description-text">${account.account_Email }</span>
 									</div>
 									<!-- /.description-block -->
 								</div>
 								<!-- /.col -->
 								<div class="col-sm-4">
 									<div class="description-block">
-										<h5 class="description-header">35</h5>
-										<span class="description-text">가입날짜</span>
+										<h5 class="description-header">가입날짜</h5>
+										<span class="description-text">${account.account_Date }</span>
 									</div>
 									<!-- /.description-block -->
 								</div>
@@ -209,22 +209,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
 									<table class="table table-hover text-nowrap">
 										<thead>
 											<tr>
-												<th>상품정보</th>
-												<th>주문일자</th>
 												<th>주문번호</th>
-												<th>주문수량</th>
+												<th>상품명</th>
+												<th>주문날짜</th>
 												<th>주문상태</th>
 											</tr>
 										</thead>
 										<tbody>
+										<c:forEach items="${account_orderList }" var="board">
 											<tr>
-												<td>183</td>
-												<td>John Doe</td>
-												<td>11-7-2014</td>
-												<td><span class="tag tag-success">Approved</span></td>
-												<td>배송중</td>
+												<td>${board.orderdata_seq}</td>
+												<td>${board.product_Name}</td>
+												<td>${board.order_date}</td>
+												<td>${board.state}</td>
 											</tr>
-
+												</c:forEach>
 										</tbody>
 									</table>
 								</div>
@@ -248,10 +247,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		<%@ include file="../include/myPageInclude/myPageFooter.jsp"%>
 	</div>
 	<!-- ./wrapper -->
+
 	<!-- REQUIRED SCRIPTS -->
 	<%@ include
 		file="../include/myPageInclude/myPageScript/myPageScript.jsp"%>
-	<%@ include
-		file="../include/myPageInclude/myPageScript/myPageScript.jsp"%>
+	<%@ include file="../include/myPageInclude/myPageScript/myPageList.jsp"%>
+	
 </body>
 </html>

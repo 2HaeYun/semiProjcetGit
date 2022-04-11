@@ -10,7 +10,7 @@ public interface MyPageOrderModifyService {
 	//public int insertMember(OrderModifyVO vo);
 	
 	//주문 내역 조회 ***************************************************************************************
-	List<MyPageOrderModifyVO> getOrderList();
+	List<MyPageOrderModifyVO> getOrderList(MyPageOrderModifyVO vo);
 
 	//주문내역페이지 db 주문상세보기에 값 가져오기 ********************
 	public MyPageOrderModifyVO selectLoad(MyPageOrderModifyVO vo);
@@ -31,5 +31,7 @@ public interface MyPageOrderModifyService {
 	void updateCancle(MyPageOrderModifyVO vo);
 	
 	//select 취소/교환/반품 상태 표시 리스트 나타내기
-	List<MyPageOrderModifyVO> getCancleList();
+	List<MyPageOrderModifyVO> getCancleList(MyPageOrderModifyVO vo);
+	
+	
 }

@@ -24,14 +24,13 @@
 						<li><a href="../myPage/signup.do">회원가입</a></li>
 					</c:otherwise>
 				</c:choose>
-				<li><a href="#"> 공지사항</a></li>
-				<li><a href="#"> 이벤트</a></li>
-				<li><a href="/homePage/Qna.do"> 고객센터</a></li>
+				<li><a href="/homePage/notice.do">공지사항</a></li>
+				<li><a href="/homePage/event.do">이벤트</a></li>
+				<li><a href="/homePage/Qna.do">고객센터</a></li>
 			</ul>
 		</div>
 	</div>
 	<!-- /TOP HEADER -->
-
 	<!-- MAIN HEADER -->
 	<div id="header">
 		<!-- container -->
@@ -41,7 +40,7 @@
 				<!-- LOGO -->
 				<div class="col-md-3 ">
 					<div class="header-logo">
-						<a href="index.jsp" class="logo"> <img width='70'
+						<a href="/" class="logo"> <img width='70'
 							src="../resources/dist/img/logo.png" alt="">
 						</a>
 					</div>
@@ -51,12 +50,12 @@
 				<!-- SEARCH BAR -->
 				<div class="col-md-6">
 					<div class="header-search">
-						<form>
-							<select class="input-select">
-								<option value="0">All Categories</option>
-								<option value="1">상품명</option>
-								<option value="2">브랜드명</option>
-							</select> <input class="input" placeholder="Search here">
+						<form name="frmSelect" method="post" action="/admin/adminProductList.do">
+							<select class="input-select" name="searchOption">
+								<option value="all" <c:out value="${nn.searchOption == 'all'?'selected':''}"/>>전체 검색</option>
+								<option value="product_Name" <c:out value="${nn.searchOption == 'product_Name'?'selected':''}"/>>상품명</option>
+								<option value="product_Category" <c:out value="${nn.searchOption == 'product_Category'?'selected':''}"/>>브랜드명</option>
+							</select> <input class="input" placeholder="검색어를 입력하세요.">
 							<button class="search-btn">검색</button>
 						</form>
 					</div>
